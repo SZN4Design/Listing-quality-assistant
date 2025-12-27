@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils';
-import { TrendingUp, ChevronRight } from 'lucide-react';
+import { TrendingUp, ChevronRight, CheckCircle2 } from 'lucide-react';
 
 interface ScoreCardProps {
   label: string;
@@ -7,9 +7,10 @@ interface ScoreCardProps {
   icon: React.ReactNode;
   onClick?: () => void;
   className?: string;
+  completed?: boolean;
 }
 
-export function ScoreCard({ label, score, icon, onClick, className }: ScoreCardProps) {
+export function ScoreCard({ label, score, icon, onClick, className, completed }: ScoreCardProps) {
   const getScoreColor = (score: number) => {
     if (score >= 80) return 'text-score-excellent';
     if (score >= 65) return 'text-score-good';
@@ -32,6 +33,7 @@ export function ScoreCard({ label, score, icon, onClick, className }: ScoreCardP
         'bg-card border border-border/50 shadow-soft-sm',
         'hover:shadow-soft-md hover:border-border transition-all duration-200',
         'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+        completed && 'border-score-excellent/30 bg-score-excellent/5',
         className
       )}
     >
@@ -47,7 +49,10 @@ export function ScoreCard({ label, score, icon, onClick, className }: ScoreCardP
           </div>
         </div>
       </div>
-      <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+      <div className="flex items-center gap-2">
+        {completed && <CheckCircle2 className="w-4 h-4 text-score-excellent" />}
+        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+      </div>
     </button>
   );
 }
