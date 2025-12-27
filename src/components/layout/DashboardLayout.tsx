@@ -16,7 +16,7 @@ interface DashboardLayoutProps {
 
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex flex-col">
       {/* Top Navigation */}
       <header className="h-16 border-b border-border bg-card px-6 flex items-center justify-between sticky top-0 z-30">
         <div className="flex items-center gap-8">
@@ -66,6 +66,13 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
       <main className="flex-1">
         {children}
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-card px-6 py-4">
+        <p className="text-center text-sm text-muted-foreground">
+          Listing Quality Assistant — Product Concept by Sabrina Mohammed
+        </p>
+      </footer>
     </div>
   );
 }
