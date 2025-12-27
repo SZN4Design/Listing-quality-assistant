@@ -1,16 +1,17 @@
 import { cn } from '@/lib/utils';
-import { TrendingUp, ChevronRight, CheckCircle2 } from 'lucide-react';
+import { TrendingUp, ChevronRight, CheckCircle2, HelpCircle } from 'lucide-react';
 
 interface ScoreCardProps {
   label: string;
   score: number;
   icon: React.ReactNode;
   onClick?: () => void;
+  onWhyClick?: () => void;
   className?: string;
   completed?: boolean;
 }
 
-export function ScoreCard({ label, score, icon, onClick, className, completed }: ScoreCardProps) {
+export function ScoreCard({ label, score, icon, onClick, onWhyClick, className, completed }: ScoreCardProps) {
   const getScoreColor = (score: number) => {
     if (score >= 80) return 'text-score-excellent';
     if (score >= 65) return 'text-score-good';
@@ -26,34 +27,52 @@ export function ScoreCard({ label, score, icon, onClick, className, completed }:
   };
 
   return (
-    <button
-      onClick={onClick}
+    <div
       className={cn(
         'group flex items-center justify-between w-full p-4 rounded-xl',
         'bg-card border border-border/50 shadow-soft-sm',
         'hover:shadow-soft-md hover:border-border transition-all duration-200',
-        'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
         completed && 'border-score-excellent/30 bg-score-excellent/5',
         className
       )}
     >
-      <div className="flex items-center gap-3">
+      <button
+        onClick={onClick}
+        className="flex items-center gap-3 flex-1 text-left focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 rounded-lg"
+      >
         <div className={cn('p-2.5 rounded-lg', getScoreBg(score))}>
           {icon}
         </div>
-        <div className="text-left">
+        <div>
           <p className="text-sm font-medium text-foreground">{label}</p>
           <div className="flex items-center gap-1.5 mt-0.5">
             <span className={cn('text-lg font-bold', getScoreColor(score))}>{score}</span>
             <span className="text-xs text-muted-foreground">/100</span>
           </div>
         </div>
-      </div>
+      </button>
       <div className="flex items-center gap-2">
+        {onWhyClick && !completed && (
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onWhyClick();
+            }}
+            className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1 px-2 py-1 rounded hover:bg-primary/5"
+          >
+            <HelpCircle className="w-3 h-3" />
+            Why?
+          </button>
+        )}
         {completed && <CheckCircle2 className="w-4 h-4 text-score-excellent" />}
-        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+        <button
+          onClick={onClick}
+          className="p-1 focus:outline-none focus:ring-2 focus:ring-ring rounded"
+        >
+          <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+        </button>
       </div>
-    </button>
+    </div>
   );
 }
 
