@@ -27,7 +27,7 @@ type WhyModalType = 'photos' | 'title' | 'description' | 'price' | null;
 
 export default function ListingEditor() {
   const navigate = useNavigate();
-  const { listing, scores, quickWins, isFullyImproved, completedFixes, loadDemoListing } = useListing();
+  const { listing, scores, quickWins, isFullyImproved, completedFixes, explanations, loadDemoListing } = useListing();
   const [showHowAIWorks, setShowHowAIWorks] = useState(false);
   const [whyModal, setWhyModal] = useState<WhyModalType>(null);
 
@@ -217,6 +217,7 @@ export default function ListingEditor() {
           onClose={() => setWhyModal(null)}
           type={whyModal}
           label={whyModal.charAt(0).toUpperCase() + whyModal.slice(1)}
+          explanation={explanations[whyModal]}
         />
       )}
     </DashboardLayout>

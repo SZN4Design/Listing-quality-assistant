@@ -1,0 +1,255 @@
+{
+  "low_quality": {
+    "id": "low_quality",
+    "year": 2019,
+    "make": "Ford",
+    "model": "F-150",
+    "trim": "XLT",
+    "mileage_km": 140720,
+    "price": 28500,
+    "market_min": 24500,
+    "market_max": 27800,
+    "photos_count": 4,
+    "missing_photo_angles": ["interior-dashboard", "interior-seats", "odometer", "tires", "rear-three-quarter"],
+    "title": "Nice truck for sale runs good",
+    "description": "Good truck, runs and drives. Has some miles on it but still good. Call me for more info.",
+    "listing_age_days": 45,
+    "scores": {
+      "overall": 38,
+      "photos": 32,
+      "title": 41,
+      "description": 35,
+      "price": 44,
+      "leadLikelihood": 1.2,
+      "confidence": "low"
+    },
+    "explanations": {
+      "photos": {
+        "issues_found": [
+          "Only 4 photos uploaded (minimum 8 recommended)",
+          "No interior photos showing dashboard or seats",
+          "Missing odometer verification photo",
+          "No tire condition images",
+          "Some photos appear dark or poorly lit"
+        ],
+        "why_it_matters": "Buyers rely on photos to assess vehicle condition before contacting you. Listings with 10+ quality photos receive 2.5x more inquiries. Interior photos are the second most viewed images after the main exterior shot.",
+        "recommended_actions": [
+          "Add clear photos of the dashboard and gauge cluster",
+          "Include front and rear seat photos",
+          "Take an odometer reading photo for mileage verification",
+          "Photograph all four tires to show tread condition",
+          "Retake exterior photos in natural daylight"
+        ]
+      },
+      "title": {
+        "issues_found": [
+          "Missing year, make, and model information",
+          "No trim level specified (XLT)",
+          "Uses vague language like 'nice' and 'good'",
+          "No key features mentioned (4x4, Crew Cab)"
+        ],
+        "why_it_matters": "Buyers search for specific vehicles using filters. Titles without year/make/model/trim won't appear in filtered searches, reducing visibility by up to 60%. Clear titles get 40% more clicks.",
+        "recommended_actions": [
+          "Start with: 2019 Ford F-150 XLT",
+          "Add body style: Crew Cab or SuperCrew",
+          "Include drivetrain: 4x4 or 4WD",
+          "Remove subjective words like 'nice' or 'good'"
+        ]
+      },
+      "description": {
+        "issues_found": [
+          "No specific condition details provided",
+          "Missing service or maintenance history",
+          "No features or equipment listed",
+          "No call-to-action for buyers",
+          "Only 15 words (recommended: 150+)"
+        ],
+        "why_it_matters": "Detailed descriptions build buyer confidence and trust. Listings that mention service history see 35% higher contact rates. Vague descriptions make buyers suspicious about hidden issues.",
+        "recommended_actions": [
+          "Describe interior and exterior condition honestly",
+          "List recent maintenance (oil changes, tire rotations, brake service)",
+          "Highlight key features (SYNC 3, leather seats, tow package)",
+          "Add financing options and trade-in availability",
+          "Include a clear call-to-action to schedule a test drive"
+        ]
+      },
+      "price": {
+        "issues_found": [
+          "Priced $2,700 above market average (11% premium)",
+          "Higher than 85% of similar listings in your area",
+          "No price justification in listing (premium features, low miles)",
+          "May extend time-to-sale significantly"
+        ],
+        "why_it_matters": "Competitively priced listings sell 2x faster. Buyers compare 8+ listings before contacting a dealer. Overpriced listings often sit for weeks, leading to eventual price drops anyway.",
+        "recommended_actions": [
+          "Consider adjusting to $26,500-$27,500 range",
+          "Or highlight premium features that justify higher price",
+          "Add 'Price Reduced' tag if lowering",
+          "Offer incentives like free delivery or warranty"
+        ]
+      }
+    }
+  },
+  "medium_quality": {
+    "id": "medium_quality",
+    "year": 2020,
+    "make": "Toyota",
+    "model": "Tacoma",
+    "trim": "TRD Sport",
+    "mileage_km": 72000,
+    "price": 34900,
+    "market_min": 32500,
+    "market_max": 36000,
+    "photos_count": 8,
+    "missing_photo_angles": ["odometer", "tires", "engine"],
+    "title": "2020 Toyota Tacoma TRD Sport - Low Miles",
+    "description": "2020 Toyota Tacoma TRD Sport with only 72,000 km. 3.5L V6 engine, automatic transmission. Clean title, no accidents. Well maintained. Comes with tonneau cover. Contact us for more information or to schedule a viewing.",
+    "listing_age_days": 18,
+    "scores": {
+      "overall": 64,
+      "photos": 62,
+      "title": 74,
+      "description": 58,
+      "price": 68,
+      "leadLikelihood": 3.1,
+      "confidence": "medium"
+    },
+    "explanations": {
+      "photos": {
+        "issues_found": [
+          "8 photos uploaded (good, but 12+ is optimal)",
+          "Missing odometer verification photo",
+          "No tire condition images",
+          "Engine bay photo would add transparency"
+        ],
+        "why_it_matters": "You're close to optimal photo count. Adding verification photos (odometer, tires) builds trust and answers common buyer questions before they ask, reducing back-and-forth and speeding up sales.",
+        "recommended_actions": [
+          "Add an odometer photo showing current mileage",
+          "Photograph tire tread depth",
+          "Include a clean engine bay photo",
+          "Consider adding a cargo bed photo with tonneau open"
+        ]
+      },
+      "title": {
+        "issues_found": [
+          "Good structure with year/make/model/trim",
+          "Could include drivetrain (4x4)",
+          "'Low Miles' is subjective - actual km would be clearer"
+        ],
+        "why_it_matters": "Your title is good but could be more specific. Buyers filter by 4x4/4WD, so including this increases search visibility. Specific mileage in title can attract serious buyers faster.",
+        "recommended_actions": [
+          "Add '4x4' or '4WD' to the title",
+          "Consider: '2020 Toyota Tacoma TRD Sport 4x4 - 72K km'",
+          "Keep total length under 70 characters"
+        ]
+      },
+      "description": {
+        "issues_found": [
+          "Good basics but lacks specific condition details",
+          "No maintenance history mentioned",
+          "Missing feature highlights (tech, safety)",
+          "Generic call-to-action"
+        ],
+        "why_it_matters": "You have a solid foundation. Adding service records and specific feature callouts (like TRD-tuned suspension, crawl control) differentiates your listing from competitors with similar vehicles.",
+        "recommended_actions": [
+          "Add recent service details (timing, dealer records)",
+          "Highlight TRD Sport specific features",
+          "Describe interior condition (leather, cloth, wear)",
+          "Mention warranty status if applicable",
+          "Add financing availability and trade-in welcome"
+        ]
+      },
+      "price": {
+        "issues_found": [
+          "Priced within market range",
+          "Slightly above average by ~3%",
+          "Competitive but could attract more views if adjusted"
+        ],
+        "why_it_matters": "Your pricing is reasonable. A small adjustment of $500-$1,000 could move you from 'competitive' to 'attractive' and significantly increase inquiry rates without major profit impact.",
+        "recommended_actions": [
+          "Consider $34,400 to hit a psychological price point",
+          "Or add value (warranty, accessories) at current price",
+          "Highlight the tonneau cover value in description"
+        ]
+      }
+    }
+  },
+  "high_quality": {
+    "id": "high_quality",
+    "year": 2021,
+    "make": "RAM",
+    "model": "1500",
+    "trim": "Laramie",
+    "mileage_km": 48500,
+    "price": 52900,
+    "market_min": 51000,
+    "market_max": 56000,
+    "photos_count": 16,
+    "missing_photo_angles": [],
+    "title": "2021 RAM 1500 Laramie Crew Cab 4x4 - One Owner, Dealer Serviced",
+    "description": "Stunning 2021 RAM 1500 Laramie Crew Cab 4x4 with only 48,500 km. One owner, always dealer serviced.\n\n**Key Features:**\n• 5.7L HEMI V8 with eTorque mild hybrid\n• 12-inch Uconnect 5 touchscreen\n• Leather heated/ventilated front seats\n• Heated steering wheel\n• Panoramic sunroof\n• Spray-in bedliner\n• Trailer tow package with brake controller\n\n**Condition:**\nExterior: Excellent - minor stone chips on hood (normal wear)\nInterior: Like new - non-smoker, no pets\nMechanical: Perfect - all scheduled maintenance completed at RAM dealer\n\n**Recent Service (at 45,000 km):**\n• Full synthetic oil change\n• Tire rotation and balance\n• Brake inspection - 70% pad life remaining\n• Multi-point inspection passed\n\n**Included:**\n• 2 key fobs with remote start\n• All original manuals and window sticker\n• Complete service records\n• Clean Carfax - no accidents, no damage\n\n**Warranty:**\n• Powertrain warranty valid until 100,000 km\n• Extended warranty available for purchase\n\nFinancing available with rates from 4.99%. Trade-ins welcome - we'll beat any reasonable offer!\n\nContact us today to schedule your test drive. This truck won't last long!",
+    "listing_age_days": 5,
+    "scores": {
+      "overall": 91,
+      "photos": 95,
+      "title": 92,
+      "description": 94,
+      "price": 88,
+      "leadLikelihood": 6.8,
+      "confidence": "high"
+    },
+    "explanations": {
+      "photos": {
+        "issues_found": [
+          "Excellent photo coverage with 16 images",
+          "All key angles covered",
+          "Good lighting throughout"
+        ],
+        "why_it_matters": "Your photo gallery is outstanding! This level of visual documentation builds immediate trust and lets buyers feel confident before they even contact you.",
+        "recommended_actions": [
+          "Consider adding a walk-around video for extra engagement",
+          "Update photos if any new accessories are added",
+          "Keep this standard for future listings"
+        ]
+      },
+      "title": {
+        "issues_found": [
+          "Excellent structure with all key information",
+          "Good use of trust signals (One Owner, Dealer Serviced)",
+          "Optimal length for search visibility"
+        ],
+        "why_it_matters": "Your title is nearly perfect. It includes all searchable terms and adds trust-building language that differentiates you from generic listings.",
+        "recommended_actions": [
+          "No changes needed",
+          "This is a template worth reusing for other listings"
+        ]
+      },
+      "description": {
+        "issues_found": [
+          "Comprehensive and well-structured",
+          "Includes all trust-building elements",
+          "Clear formatting with bullet points and sections"
+        ],
+        "why_it_matters": "This description answers virtually every question a buyer might have. The transparency about minor wear actually builds trust - it shows you're honest.",
+        "recommended_actions": [
+          "No major changes needed",
+          "Consider adding a specific appointment booking link if available",
+          "Update service records if any new maintenance is performed"
+        ]
+      },
+      "price": {
+        "issues_found": [
+          "Priced competitively within market range",
+          "Well-justified by condition and service history",
+          "One-owner premium is appropriate"
+        ],
+        "why_it_matters": "Your price is well-positioned. The combination of condition, documentation, and remaining warranty justifies asking near the top of the market range.",
+        "recommended_actions": [
+          "Price is appropriate - no changes recommended",
+          "If no inquiries after 14 days, consider a small adjustment",
+          "Highlight the warranty value in buyer conversations"
+        ]
+      }
+    }
+  }
+}
