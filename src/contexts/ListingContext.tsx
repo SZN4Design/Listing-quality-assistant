@@ -2,18 +2,44 @@ import React, { createContext, useContext, useState, useCallback } from 'react';
 import { 
   ListingData, 
   ScoreData, 
-  QuickWin 
+  QuickWin,
+  MockListingExplanations
 } from '@/types/listing';
 import {
   initialListing,
   improvedListing,
   initialScores,
   improvedScores,
-  initialQuickWins
+  initialQuickWins,
+  scoreExplanations
 } from '@/data/mockData';
 import { DemoListing } from '@/data/demoListings';
 
 type FixType = 'photos' | 'title' | 'description' | 'price';
+
+// Default explanations matching the new structure
+const defaultExplanations: MockListingExplanations = {
+  photos: {
+    issues_found: scoreExplanations.photos.whatWeNoticed,
+    why_it_matters: scoreExplanations.photos.whyItMatters,
+    recommended_actions: scoreExplanations.photos.whatToFix
+  },
+  title: {
+    issues_found: scoreExplanations.title.whatWeNoticed,
+    why_it_matters: scoreExplanations.title.whyItMatters,
+    recommended_actions: scoreExplanations.title.whatToFix
+  },
+  description: {
+    issues_found: scoreExplanations.description.whatWeNoticed,
+    why_it_matters: scoreExplanations.description.whyItMatters,
+    recommended_actions: scoreExplanations.description.whatToFix
+  },
+  price: {
+    issues_found: scoreExplanations.price.whatWeNoticed,
+    why_it_matters: scoreExplanations.price.whyItMatters,
+    recommended_actions: scoreExplanations.price.whatToFix
+  }
+};
 
 interface ListingContextType {
   listing: ListingData;
@@ -21,6 +47,7 @@ interface ListingContextType {
   quickWins: QuickWin[];
   isFullyImproved: boolean;
   completedFixes: Set<FixType>;
+  explanations: MockListingExplanations;
   applyFix: (type: FixType) => void;
   resetListing: () => void;
   loadDemoListing: (demo: DemoListing) => void;
@@ -43,6 +70,7 @@ export function ListingProvider({ children }: { children: React.ReactNode }) {
   const [currentListing, setCurrentListing] = useState<ListingData>(initialListing);
   const [baseScores, setBaseScores] = useState<ScoreData>(initialScores);
   const [targetScores, setTargetScores] = useState<ScoreData>(improvedScores);
+  const [explanations, setExplanations] = useState<MockListingExplanations>(defaultExplanations);
 
   const isFullyImproved = completedFixes.size === 4 || quickWins.every(w => w.completed);
 
@@ -103,6 +131,7 @@ export function ListingProvider({ children }: { children: React.ReactNode }) {
     setCurrentListing(initialListing);
     setBaseScores(initialScores);
     setTargetScores(improvedScores);
+    setExplanations(defaultExplanations);
   }, []);
 
   const loadDemoListing = useCallback((demo: DemoListing) => {
@@ -111,6 +140,7 @@ export function ListingProvider({ children }: { children: React.ReactNode }) {
     setCurrentScores(demo.scores);
     setQuickWins(demo.quickWins);
     setBaseScores(demo.scores);
+    setExplanations(demo.explanations);
     // Set target scores based on demo quality level
     const improvedTarget: ScoreData = {
       overall: Math.min(demo.scores.overall + 30, 95),
@@ -131,6 +161,7 @@ export function ListingProvider({ children }: { children: React.ReactNode }) {
       quickWins,
       isFullyImproved,
       completedFixes,
+      explanations,
       applyFix,
       resetListing,
       loadDemoListing

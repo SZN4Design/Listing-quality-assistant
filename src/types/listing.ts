@@ -81,3 +81,42 @@ export interface PhotoChecklist {
   required: boolean;
   present: boolean;
 }
+
+// New types for JSON mock data
+export interface CategoryExplanation {
+  issues_found: string[];
+  why_it_matters: string;
+  recommended_actions: string[];
+}
+
+export interface MockListingExplanations {
+  photos: CategoryExplanation;
+  title: CategoryExplanation;
+  description: CategoryExplanation;
+  price: CategoryExplanation;
+}
+
+export interface MockListingData {
+  id: string;
+  year: number;
+  make: string;
+  model: string;
+  trim: string;
+  mileage_km: number;
+  price: number;
+  market_min: number;
+  market_max: number;
+  photos_count: number;
+  missing_photo_angles: string[];
+  title: string;
+  description: string;
+  listing_age_days: number;
+  scores: ScoreData;
+  explanations: MockListingExplanations;
+}
+
+export interface MockListingsJSON {
+  low_quality: MockListingData;
+  medium_quality: MockListingData;
+  high_quality: MockListingData;
+}
