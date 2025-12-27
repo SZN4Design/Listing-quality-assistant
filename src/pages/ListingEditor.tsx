@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { 
@@ -8,7 +9,8 @@ import {
   Sparkles,
   ArrowRight,
   CheckCircle2,
-  Send
+  Send,
+  HelpCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { DashboardLayout } from '@/components/layout/DashboardLayout';
@@ -16,11 +18,18 @@ import { ListingForm } from '@/components/forms/ListingForm';
 import { CircularScore } from '@/components/scores/CircularScore';
 import { ScoreCard, LeadLikelihood } from '@/components/scores/ScoreCard';
 import { QuickWins } from '@/components/scores/QuickWins';
+import { DemoListingSelector } from '@/components/DemoListingSelector';
+import { HowAIWorksDrawer } from '@/components/drawers/HowAIWorksDrawer';
+import { WhyRecommendationModal } from '@/components/modals/WhyRecommendationModal';
 import { useListing } from '@/contexts/ListingContext';
+
+type WhyModalType = 'photos' | 'title' | 'description' | 'price' | null;
 
 export default function ListingEditor() {
   const navigate = useNavigate();
-  const { listing, scores, quickWins, isFullyImproved, completedFixes } = useListing();
+  const { listing, scores, quickWins, isFullyImproved, completedFixes, loadDemoListing } = useListing();
+  const [showHowAIWorks, setShowHowAIWorks] = useState(false);
+  const [whyModal, setWhyModal] = useState<WhyModalType>(null);
 
   const handleScoreCardClick = (type: 'photos' | 'title' | 'description' | 'price') => {
     navigate(`/fix-${type}`);
@@ -50,12 +59,15 @@ export default function ListingEditor() {
                 {listing.year} {listing.make} {listing.model} {listing.trim}
               </p>
             </div>
-            {isFullyImproved && (
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-score-excellent/10 text-score-excellent text-sm font-medium animate-fade-in-up">
-                <CheckCircle2 className="w-4 h-4" />
-                Optimized
-              </div>
-            )}
+            <div className="flex items-center gap-3">
+              <DemoListingSelector onSelect={loadDemoListing} />
+              {isFullyImproved && (
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-score-excellent/10 text-score-excellent text-sm font-medium animate-fade-in-up">
+                  <CheckCircle2 className="w-4 h-4" />
+                  Optimized
+                </div>
+              )}
+            </div>
           </div>
           
           <div className="bg-card rounded-2xl border border-border p-6 shadow-soft-sm">
@@ -65,15 +77,26 @@ export default function ListingEditor() {
         
         {/* Right Column - Quality Assistant */}
         <div className="col-span-2 space-y-6">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-primary/10">
-              <Sparkles className="w-5 h-5 text-primary" />
-            </div>
-            <div>
-              <h2 className="text-lg font-semibold text-foreground">Listing Quality Assistant</h2>
-              <p className="text-sm text-muted-foreground">AI-powered optimization</p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="p-2 rounded-xl bg-primary/10">
+                <Sparkles className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <h2 className="text-lg font-semibold text-foreground">Listing Quality Assistant</h2>
+                <p className="text-sm text-muted-foreground">AI-powered optimization</p>
+              </div>
             </div>
           </div>
+          
+          {/* How AI Works Link */}
+          <button
+            onClick={() => setShowHowAIWorks(true)}
+            className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
+          >
+            <HelpCircle className="w-4 h-4" />
+            How recommendations are generated
+          </button>
           
           {/* Overall Score */}
           <div className="bg-card rounded-2xl border border-border p-6 shadow-soft-sm">
@@ -93,6 +116,7 @@ export default function ListingEditor() {
               score={scores.photos}
               icon={<Camera className="w-4 h-4 text-primary" />}
               onClick={() => handleScoreCardClick('photos')}
+              onWhyClick={() => setWhyModal('photos')}
               completed={completedFixes.has('photos')}
             />
             <ScoreCard
@@ -100,6 +124,7 @@ export default function ListingEditor() {
               score={scores.title}
               icon={<Type className="w-4 h-4 text-primary" />}
               onClick={() => handleScoreCardClick('title')}
+              onWhyClick={() => setWhyModal('title')}
               completed={completedFixes.has('title')}
             />
             <ScoreCard
@@ -107,6 +132,7 @@ export default function ListingEditor() {
               score={scores.description}
               icon={<FileText className="w-4 h-4 text-primary" />}
               onClick={() => handleScoreCardClick('description')}
+              onWhyClick={() => setWhyModal('description')}
               completed={completedFixes.has('description')}
             />
             <ScoreCard
@@ -114,6 +140,7 @@ export default function ListingEditor() {
               score={scores.price}
               icon={<DollarSign className="w-4 h-4 text-primary" />}
               onClick={() => handleScoreCardClick('price')}
+              onWhyClick={() => setWhyModal('price')}
               completed={completedFixes.has('price')}
             />
           </div>
@@ -176,6 +203,22 @@ export default function ListingEditor() {
           )}
         </div>
       </div>
+
+      {/* How AI Works Drawer */}
+      <HowAIWorksDrawer 
+        isOpen={showHowAIWorks} 
+        onClose={() => setShowHowAIWorks(false)} 
+      />
+
+      {/* Why Recommendation Modals */}
+      {whyModal && (
+        <WhyRecommendationModal
+          isOpen={!!whyModal}
+          onClose={() => setWhyModal(null)}
+          type={whyModal}
+          label={whyModal.charAt(0).toUpperCase() + whyModal.slice(1)}
+        />
+      )}
     </DashboardLayout>
   );
 }
