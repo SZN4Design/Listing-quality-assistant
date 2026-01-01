@@ -39,7 +39,7 @@ export function PhotoUploader({ photos, isImproved = false, className }: PhotoUp
       <label className="text-sm font-medium text-foreground">
         Photos ({photos.length}/12)
       </label>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
         {photos.map((photo, index) => {
           const imageSrc = getPhotoImage(index, isImproved);
           

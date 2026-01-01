@@ -49,12 +49,12 @@ export default function ListingEditor() {
 
   return (
     <DashboardLayout>
-      <div className="grid grid-cols-5 gap-8 p-8">
+      <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 lg:gap-8 p-4 md:p-6 lg:p-8">
         {/* Left Column - Edit Listing Form */}
-        <div className="col-span-3 space-y-6">
-          <div className="flex items-center justify-between">
+        <div className="lg:col-span-3 space-y-4 lg:space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h1 className="text-2xl font-bold text-foreground">Edit Listing</h1>
+              <h1 className="text-xl md:text-2xl font-bold text-foreground">Edit Listing</h1>
               <p className="text-sm text-muted-foreground mt-1">
                 {listing.year} {listing.make} {listing.model} {listing.trim}
               </p>
@@ -70,21 +70,21 @@ export default function ListingEditor() {
             </div>
           </div>
           
-          <div className="bg-card rounded-2xl border border-border p-6 shadow-soft-sm">
+          <div className="bg-card rounded-xl lg:rounded-2xl border border-border p-4 md:p-6 shadow-soft-sm">
             <ListingForm listing={listing} isImproved={isFullyImproved} />
           </div>
         </div>
         
         {/* Right Column - Quality Assistant */}
-        <div className="col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-4 lg:space-y-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-xl bg-primary/10">
                 <Sparkles className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-foreground">Listing Quality Assistant</h2>
-                <p className="text-sm text-muted-foreground">AI-powered optimization</p>
+                <h2 className="text-base md:text-lg font-semibold text-foreground">Listing Quality Assistant</h2>
+                <p className="text-xs md:text-sm text-muted-foreground">AI-powered optimization</p>
               </div>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function ListingEditor() {
           </button>
           
           {/* Overall Score */}
-          <div className="bg-card rounded-2xl border border-border p-6 shadow-soft-sm">
+          <div className="bg-card rounded-xl lg:rounded-2xl border border-border p-4 md:p-6 shadow-soft-sm">
             <CircularScore 
               score={scores.overall} 
               size="lg" 
