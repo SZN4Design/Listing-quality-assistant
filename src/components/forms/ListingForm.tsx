@@ -37,7 +37,7 @@ export function ListingForm({ listing, isImproved = false, className }: ListingF
           />
         </div>
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="price">Price</Label>
             <div className="relative">
@@ -64,7 +64,7 @@ export function ListingForm({ listing, isImproved = false, className }: ListingF
           </div>
         </div>
         
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           <div className="space-y-2">
             <Label htmlFor="year">Year</Label>
             <Input

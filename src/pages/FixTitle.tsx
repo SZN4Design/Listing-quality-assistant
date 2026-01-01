@@ -26,7 +26,7 @@ export default function FixTitle() {
 
   return (
     <DashboardLayout>
-      <div className="max-w-2xl mx-auto p-8">
+      <div className="max-w-2xl mx-auto p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <button
@@ -45,9 +45,9 @@ export default function FixTitle() {
         </div>
 
         {/* Content Card */}
-        <div className="bg-card rounded-2xl border border-border shadow-soft-lg overflow-hidden">
+        <div className="bg-card rounded-xl md:rounded-2xl border border-border shadow-soft-lg overflow-hidden">
           {/* Card Header */}
-          <div className="flex items-center gap-3 p-6 border-b border-border">
+          <div className="flex items-center gap-3 p-4 md:p-6 border-b border-border">
             <div className="p-2 rounded-lg bg-primary/10">
               <Type className="w-5 h-5 text-primary" />
             </div>
@@ -60,7 +60,7 @@ export default function FixTitle() {
           </div>
 
           {/* Card Content */}
-          <div className="p-6 space-y-6">
+          <div className="p-4 md:p-6 space-y-6">
             {/* Original title */}
             <section>
               <h3 className="text-sm font-medium text-muted-foreground mb-2">
@@ -111,7 +111,7 @@ export default function FixTitle() {
           </div>
 
           {/* Card Footer */}
-          <div className="p-6 border-t border-border flex gap-3">
+          <div className="p-4 md:p-6 border-t border-border flex flex-col sm:flex-row gap-3">
             {isAlreadyFixed ? (
               <Button onClick={handleBack} className="w-full" size="lg" variant="outline">
                 <ArrowLeft className="w-4 h-4 mr-2" />

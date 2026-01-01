@@ -27,7 +27,7 @@ export default function FixPrice() {
 
   return (
     <DashboardLayout>
-      <div className="max-w-2xl mx-auto p-8">
+      <div className="max-w-2xl mx-auto p-4 md:p-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
           <button
@@ -46,9 +46,9 @@ export default function FixPrice() {
         </div>
 
         {/* Content Card */}
-        <div className="bg-card rounded-2xl border border-border shadow-soft-lg overflow-hidden">
+        <div className="bg-card rounded-xl md:rounded-2xl border border-border shadow-soft-lg overflow-hidden">
           {/* Card Header */}
-          <div className="flex items-center gap-3 p-6 border-b border-border">
+          <div className="flex items-center gap-3 p-4 md:p-6 border-b border-border">
             <div className="p-2 rounded-lg bg-primary/10">
               <DollarSign className="w-5 h-5 text-primary" />
             </div>
@@ -61,7 +61,7 @@ export default function FixPrice() {
           </div>
 
           {/* Card Content */}
-          <div className="p-6 space-y-6">
+          <div className="p-4 md:p-6 space-y-6">
             {/* Alert */}
             {!isAlreadyFixed && (
               <div className="flex items-start gap-3 p-4 rounded-xl bg-score-medium/10 border border-score-medium/20">
@@ -140,7 +140,7 @@ export default function FixPrice() {
             </section>
             
             {/* Price comparison */}
-            <section className="grid grid-cols-2 gap-4">
+            <section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className={`p-4 rounded-xl ${isAlreadyFixed ? 'bg-muted/30' : 'bg-muted/50'} border border-border`}>
                 <p className="text-xs text-muted-foreground mb-1">
                   {isAlreadyFixed ? 'Previous Price' : 'Your Price'}
@@ -177,7 +177,7 @@ export default function FixPrice() {
           </div>
 
           {/* Card Footer */}
-          <div className="p-6 border-t border-border">
+          <div className="p-4 md:p-6 border-t border-border">
             {isAlreadyFixed ? (
               <Button onClick={handleBack} className="w-full" size="lg" variant="outline">
                 <ArrowLeft className="w-4 h-4 mr-2" />
